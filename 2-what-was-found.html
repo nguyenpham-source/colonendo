@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>What Was Found · Hang Bui Colonoscopy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column (~72ch) with wide figure breakouts; quiet clinical teal, tissue pink only on the colon itself */
+:root{
+  --bg:#F2F6F6; --card:#FFFFFF; --fg:#16242A; --muted:#5A6D73; --line:#D3DDDF;
+  --accent:#1D6971; --accent-soft:#DCEDEE;
+  --tissue:#E3A39A; --tissue-in:#F3D3CD;
+  --ok:#2F7F52; --ok-soft:#DDEFE3; --watch:#B67A10; --watch-soft:#F7EBD2; --alert:#B2443A; --alert-soft:#F6DEDA;
+  --f-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-data:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1618; --card:#152125; --fg:#E2EBEC; --muted:#93A6AB; --line:#26383C;
+  --accent:#6DC0C6; --accent-soft:#17353A; --tissue:#A9665E; --tissue-in:#5E3A36;
+  --ok:#6CC08C; --ok-soft:#173226; --watch:#E3AA4B; --watch-soft:#3A2D14; --alert:#E58378; --alert-soft:#3D1F1C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1618; --card:#152125; --fg:#E2EBEC; --muted:#93A6AB; --line:#26383C;
+  --accent:#6DC0C6; --accent-soft:#17353A; --tissue:#A9665E; --tissue-in:#5E3A36;
+  --ok:#6CC08C; --ok-soft:#173226; --watch:#E3AA4B; --watch-soft:#3A2D14; --alert:#E58378; --alert-soft:#3D1F1C; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16.5px;line-height:1.6;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:28px 64px}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,5.5vw,3.1rem);letter-spacing:-.01em}
+h2{font-size:1.75rem;margin-top:8px}
+h3{font-size:1.25rem}
+p{margin:0;max-width:68ch}
+.eyebrow{font-family:var(--f-data);font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:1.15rem;color:var(--fg);max-width:62ch}
+.muted{color:var(--muted)}
+.mono{font-family:var(--f-data);font-variant-numeric:tabular-nums}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.stack{display:flex;flex-direction:column;gap:14px}
+section{display:flex;flex-direction:column;gap:16px;padding-block:34px;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+
+/* page nav */
+.pnav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:26px;font-size:.92rem}
+.pnav a{display:flex;gap:8px;align-items:center;text-decoration:none;color:var(--muted);padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.pnav a b{font-family:var(--f-data);font-weight:500;font-size:.78rem}
+.pnav a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.pnav a:hover{border-color:var(--accent)}
+
+.patient{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:.88rem;color:var(--muted);margin-top:12px}
+.patient span b{color:var(--fg);font-weight:600}
+
+/* verdict box */
+.verdict{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.verdict h2{margin:0;font-size:1.5rem}
+.vlist{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.vlist li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.vlist li>div{min-width:0}
+.pill{display:inline-block;font-family:var(--f-data);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap;font-weight:500}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.watch{background:var(--watch-soft);color:var(--watch)}
+.pill.info{background:var(--accent-soft);color:var(--accent)}
+.pill.alert{background:var(--alert-soft);color:var(--alert)}
+
+/* figures */
+figure{margin:0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.86rem;color:var(--muted);max-width:68ch}
+.fig{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;overflow-x:auto}
+svg{display:block;max-width:100%;height:auto}
+svg text{font-family:var(--f-body);fill:var(--fg)}
+svg .lbl-muted{fill:var(--muted)}
+svg .mono{font-family:var(--f-data)}
+
+/* metric grid */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.metric{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.metric .v{font-family:var(--f-display);font-size:1.6rem;line-height:1.1}
+.metric .k{font-size:.82rem;color:var(--muted)}
+
+/* photos */
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.photos figure{gap:4px}
+.photos img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:#000;display:block}
+.photos figcaption{font-size:.78rem}
+.photos .tag{font-family:var(--f-data);font-size:.72rem;color:var(--fg)}
+
+/* finding blocks */
+.finding{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.finding header{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between}
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;font-size:.92rem;margin:0}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;min-width:0}
+.plain{background:var(--accent-soft);border-radius:10px;padding:12px 14px;font-size:.96rem}
+.plain b{color:var(--accent)}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.two>*{min-width:0}
+ul.clean{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+.callout{border:1px solid var(--line);border-left:4px solid var(--alert);border-radius:10px;padding:14px 16px;background:var(--card)}
+.callout.calm{border-left-color:var(--accent)}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+.tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px}
+
+/* documents */
+.docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.doc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.doc .pages{display:flex;gap:8px}
+.doc .pages img{flex:1;min-width:0;border:1px solid var(--line);border-radius:4px;background:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:var(--accent);color:var(--bg);padding:10px 14px;border-radius:9px;font-weight:600;font-size:.92rem}
+.btn:hover{filter:brightness(1.08)}
+
+.next{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+.next a{text-decoration:none;font-weight:600}
+.foot{font-size:.8rem;color:var(--muted);margin-top:28px;max-width:70ch}
+@media (max-width:520px){ .kv{grid-template-columns:1fr;gap:2px} .kv dd{margin-bottom:8px} body{font-size:16px} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="pnav" aria-label="Pages">
+    <a href="1-overview.html"><b>1</b> Overview</a>
+    <a href="2-what-was-found.html" aria-current="page"><b>2</b> What was found</a>
+    <a href="3-next-steps-and-reports.html"><b>3</b> Next steps &amp; reports</a>
+  </nav>
+
+  <header class="stack">
+    <span class="eyebrow">Page 2 · Findings, one by one</span>
+    <h1>What was found, and what it means</h1>
+    <p class="lede">For each finding: what the doctor saw through the scope, what the lab saw under the microscope, and what that means in plain words.</p>
+  </header>
+
+  <section>
+    <article class="finding">
+      <header><h3>A · Polyp in the cecum</h3><span class="pill ok">Harmless</span></header>
+      <dl class="kv">
+        <dt>Doctor saw</dt><dd>One flat-based (sessile) polyp, 5 mm, removed with a wire loop (cold snare). Removal complete.</dd>
+        <dt>Lab said</dt><dd>"Benign mucosal tag, negative for neoplasm or malignancy."</dd>
+      </dl>
+      <p class="plain"><b>In plain words:</b> it looked like a polyp, but under the microscope it was only a small flap of normal colon lining. It was not a growth and carries no cancer risk.</p>
+    </article>
+
+    <article class="finding">
+      <header><h3>B · Two polyps in the ascending colon</h3><span class="pill watch">Precancerous type · removed</span></header>
+      <dl class="kv">
+        <dt>Doctor saw</dt><dd>Two flat-based polyps, 3 to 5 mm, removed with a cold snare. Removal complete.</dd>
+        <dt>Lab said</dt><dd>"Subtle features of sessile serrated lesion without dysplasia."</dd>
+      </dl>
+      <div class="plain stack" style="gap:8px">
+        <p><b>In plain words:</b></p>
+        <ul class="clean">
+          <li><b>Sessile serrated lesion (SSL)</b> is a type of polyp with a saw-tooth pattern under the microscope. Left in place for many years, some SSLs can turn into cancer. That is why doctors remove them.</li>
+          <li><b>"Subtle features"</b> means the pathologist saw only mild, early signs of this type.</li>
+          <li><b>"Without dysplasia"</b> means the cells were not yet abnormal. This is the earliest, lowest-risk stage.</li>
+          <li>Both were <b>completely removed</b>, so they can't grow any further.</li>
+        </ul>
+      </div>
+      <p class="muted" style="font-size:.86rem">The lab received these as four small pieces (4–6 mm). Small polyps often come out in pieces with a snare; that is normal.</p>
+    </article>
+
+    <article class="finding">
+      <header><h3>C · Diverticulosis throughout the colon</h3><span class="pill info">Common</span></header>
+      <dl class="kv">
+        <dt>Doctor saw</dt><dd>Multiple medium-mouthed diverticula in the entire colon.</dd>
+        <dt>Lab said</dt><dd>Nothing to test; this is seen by eye only.</dd>
+      </dl>
+      <p class="plain"><b>In plain words:</b> small pouches have formed where the colon wall is weaker. More than half of people over 60 have them. Most never have any problems. See the drawing and tips below.</p>
+    </article>
+  </section>
+
+  <section>
+    <span class="eyebrow">Risk ladder</span>
+    <h2>How far along were the polyps?</h2>
+    <p>Polyps that can become cancer usually move through stages slowly, often over 10 years or more. Both findings were at the bottom of the ladder, and the risky ones were taken out.</p>
+    <figure>
+      <div class="fig">
+        <svg viewBox="0 0 640 290" role="img" aria-labelledby="ladT">
+          <title id="ladT">Four-step risk ladder. The cecum polyp was at step one, harmless. The ascending colon polyps were at step two, serrated without abnormal cells, and were removed. Steps three and four were not found.</title>
+          <rect x="10" y="200" width="145" height="60" rx="6" fill="var(--ok-soft)"/>
+          <rect x="165" y="160" width="145" height="100" rx="6" fill="var(--watch-soft)"/>
+          <rect x="320" y="120" width="145" height="140" rx="6" fill="var(--alert-soft)" opacity=".55"/>
+          <rect x="475" y="80" width="145" height="180" rx="6" fill="var(--alert-soft)"/>
+          <g font-size="13" font-weight="600">
+            <text x="22" y="224">Not a growth</text>
+            <text x="177" y="184">Serrated lesion</text>
+            <text x="332" y="144">Serrated lesion</text>
+            <text x="487" y="104">Cancer</text>
+          </g>
+          <g font-size="12" class="lbl-muted">
+            <text x="22" y="242" class="lbl-muted">(tag of lining)</text>
+            <text x="177" y="202" class="lbl-muted">no abnormal cells</text>
+            <text x="332" y="162" class="lbl-muted">with abnormal cells</text>
+            <text x="332" y="178" class="lbl-muted">(dysplasia)</text>
+          </g>
+          <!-- markers -->
+          <g font-size="12" font-weight="600">
+            <circle cx="40" cy="178" r="8" fill="var(--muted)"/>
+            <text x="54" y="182">Cecum polyp</text>
+            <circle cx="183" cy="118" r="8" fill="var(--watch)"/>
+            <text x="197" y="114">Ascending polyps</text>
+            <text x="197" y="130" font-weight="400" class="lbl-muted">removed</text>
+          </g>
+          <g font-size="12" class="lbl-muted" text-anchor="middle">
+            <text x="392" y="106" class="lbl-muted">Not found</text>
+            <text x="547" y="66" class="lbl-muted">Not found</text>
+          </g>
+          <text x="10" y="282" font-size="12" class="lbl-muted">Lower risk</text>
+          <text x="620" y="282" font-size="12" text-anchor="end" class="lbl-muted">Higher risk</text>
+          <line x1="80" y1="278" x2="560" y2="278" stroke="var(--line)" stroke-width="2"/>
+          <path d="M560 273 L570 278 L560 283 Z" fill="var(--line)"/>
+        </svg>
+      </div>
+      <figcaption>Simplified for explanation. Doctors also weigh size and number of polyps when setting the next exam date.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <span class="eyebrow">Size</span>
+    <h2>How small is 3 to 5 mm?</h2>
+    <p>Doctors pay closer attention to polyps 10 mm (1 cm) or larger. All three of these were well under half that size.</p>
+    <figure>
+      <div class="fig">
+        <svg viewBox="0 0 640 220" role="img" aria-labelledby="szT">
+          <title id="szT">Circles drawn to scale: 3 millimeter and 5 millimeter polyps next to a 10 millimeter size that doctors watch more closely, plus everyday objects</title>
+          <!-- scale: 12 px per mm; baseline y=150 -->
+          <circle cx="60" cy="132" r="18" fill="var(--watch)"/>
+          <circle cx="150" cy="120" r="30" fill="var(--watch)"/>
+          <circle cx="250" cy="120" r="30" fill="var(--muted)"/>
+          <circle cx="400" cy="90" r="60" fill="none" stroke="var(--alert)" stroke-width="2" stroke-dasharray="6 5"/>
+          <g font-size="13" text-anchor="middle">
+            <text x="60" y="178" class="mono">3 mm</text>
+            <text x="150" y="178" class="mono">5 mm</text>
+            <text x="250" y="178" class="mono">5 mm</text>
+            <text x="400" y="178" class="mono">10 mm</text>
+          </g>
+          <g font-size="12" text-anchor="middle" class="lbl-muted">
+            <text x="105" y="198" class="lbl-muted">Ascending polyps</text>
+            <text x="250" y="198" class="lbl-muted">Cecum tag</text>
+            <text x="400" y="198" class="lbl-muted">"Large" starts here</text>
+          </g>
+          <line x1="490" y1="20" x2="490" y2="200" stroke="var(--line)"/>
+          <g font-size="13">
+            <text x="510" y="70">≈ 3 mm</text>
+            <text x="510" y="88" class="lbl-muted" font-size="12">a sesame seed</text>
+            <text x="510" y="128">≈ 5 mm</text>
+            <text x="510" y="146" class="lbl-muted" font-size="12">a pencil eraser tip</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>Circles are drawn to the same scale as each other.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <span class="eyebrow">Diverticulosis</span>
+    <h2>The small pouches, explained</h2>
+    <figure>
+      <div class="fig">
+        <svg viewBox="0 0 640 200" role="img" aria-labelledby="dvT">
+          <title id="dvT">Side view of a section of colon with small pouches bulging outward through the wall</title>
+          <path d="M20 60 H130 C130 18 190 18 190 60 H360 C360 14 430 14 430 60 H620" fill="none" stroke="var(--tissue)" stroke-width="14" stroke-linejoin="round"/>
+          <path d="M20 140 H250 C250 186 310 186 310 140 H520 C520 180 570 180 570 140 H620" fill="none" stroke="var(--tissue)" stroke-width="14" stroke-linejoin="round"/>
+          <rect x="20" y="67" width="600" height="66" fill="var(--tissue-in)" opacity=".5"/>
+          <text x="40" y="106" font-size="13" class="lbl-muted">Inside of the colon</text>
+          <path d="M395 34 L452 34" stroke="var(--fg)" stroke-width="1.2"/>
+          <text x="458" y="30" font-size="13" font-weight="600">Diverticulum</text>
+          <text x="458" y="46" font-size="12" class="lbl-muted">a pouch pushed outward</text>
+          <text x="330" y="196" font-size="12" class="lbl-muted">Pouches form at weak spots in the wall, often from years of pressure</text>
+        </svg>
+      </div>
+    </figure>
+    <div class="two">
+      <div class="stack">
+        <h3>Day to day</h3>
+        <ul class="clean">
+          <li>Most people never notice them. No treatment is needed.</li>
+          <li>A high-fiber diet helps: vegetables, fruit, beans, oats, whole grains. A fiber supplement such as psyllium is an option.</li>
+          <li>Drink plenty of water and stay active.</li>
+          <li>Nuts, seeds and popcorn are generally fine. The old advice to avoid them is no longer recommended.</li>
+        </ul>
+      </div>
+      <div class="callout stack">
+        <h3>Call the doctor if you notice</h3>
+        <ul class="clean">
+          <li>Belly pain that doesn't go away, usually in the lower left, especially with fever, nausea or vomiting. This can be diverticulitis (an infected pouch).</li>
+          <li>Blood in the stool or from the rectum. A large amount, or dizziness, needs the emergency room.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="next">
+    <a href="1-overview.html">← Overview</a>
+    <a href="3-next-steps-and-reports.html">Next: Next steps &amp; reports →</a>
+  </div>
+  <p class="foot">This summary explains the attached reports in everyday language. It is not medical advice and does not replace a conversation with Dr. Simien or another doctor.</p>
+</div>
+</body>
+</html>
